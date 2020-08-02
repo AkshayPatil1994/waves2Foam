@@ -67,8 +67,9 @@ Foam::overtopping::overtopping
     outputPath_(fileName::null),
 
     phiName_(dict.lookupOrDefault<word>("phiName","phi")),
-    rhoPhiName_(dict.lookupOrDefault<word>("rhoPhiName","rho*phi")),
-
+//    rhoPhiName_(dict.lookupOrDefault<word>("rhoPhiName","rho*phi")), //rho*phi field is not availabel in OpenFOAM-v1912
+    rhoPhiName_(dict.lookupOrDefault<word>("rhoPhiName","rhoPhi"))    //rhoPhi is the visible field in v1912
+      
 #if OFPLUSBRANCH==1
     #if OFVERSION > 1712
     overtoppingFilePtr_(nullptr)
